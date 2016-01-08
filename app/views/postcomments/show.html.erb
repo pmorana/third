@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @postcomment.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @postcomment.body %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @postcomment.event %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @postcomment.user %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @postcomment.created_by %>
+</p>
+
+<%= link_to 'Edit', edit_postcomment_path(@postcomment) %> |
+<%= link_to 'Back', postcomments_path %>

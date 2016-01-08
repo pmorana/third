@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :postcomments
+
   resources :alerts
 
   resources :precomments do

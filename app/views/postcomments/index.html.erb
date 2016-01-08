@@ -1,0 +1,33 @@
+<h1>Listing postcomments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Event</th>
+      <th>User</th>
+      <th>Created by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @postcomments.each do |postcomment| %>
+      <tr>
+        <td><%= postcomment.title %></td>
+        <td><%= postcomment.body %></td>
+        <td><%= postcomment.event %></td>
+        <td><%= postcomment.user %></td>
+        <td><%= postcomment.created_by %></td>
+        <td><%= link_to 'Show', postcomment %></td>
+        <td><%= link_to 'Edit', edit_postcomment_path(postcomment) %></td>
+        <td><%= link_to 'Destroy', postcomment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Postcomment', new_postcomment_path %>
