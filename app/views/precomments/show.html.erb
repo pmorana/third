@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Precomment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Precomment %></h1>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @precomment.title %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:title) %></dt>
+      <dd><pre class="prettyprint"><%= @precomment.title %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:body) %></dt>
+      <dd><pre class="prettyprint"><%= @precomment.body %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:created_by) %></dt>
+      <dd><pre class="prettyprint"><%= @precomment.created_by %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @precomment.body %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              precomments_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_precomment_path(@precomment), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              precomment_path(@precomment),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Event:</strong>
-  <%= @precomment.event %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @precomment.user %>
-</p>
-
-<p>
-  <strong>Created by:</strong>
-  <%= @precomment.created_by %>
-</p>
-
-<%= link_to 'Edit', edit_precomment_path(@precomment) %> |
-<%= link_to 'Back', precomments_path %>

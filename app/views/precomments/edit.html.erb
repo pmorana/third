@@ -1,6 +1,5 @@
-<h1>Editing precomment</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @precomment %> |
-<%= link_to 'Back', precomments_path %>
+<%- model_class = Precomment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Precomment %></h1>
+</div>
+<%= render :partial => 'form' %>
