@@ -29,6 +29,7 @@ class PrecommentsController < ApplicationController
   # POST /precomments.json
   def create
     @precomment = Precomment.new(precomment_params)
+    @precomment.user = current_user
 
     respond_to do |format|
       if @precomment.save
