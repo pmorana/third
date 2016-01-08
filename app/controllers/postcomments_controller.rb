@@ -29,6 +29,7 @@ class PostcommentsController < ApplicationController
   # POST /postcomments.json
   def create
     @postcomment = Postcomment.new(postcomment_params)
+    @postcomment.user = current_user
 
     respond_to do |format|
       if @postcomment.save
