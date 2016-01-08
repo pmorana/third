@@ -1,33 +1,40 @@
-<h1>Listing postcomments</h1>
-
-<table>
+<%- model_class = Postcomment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Postcomment %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Event</th>
-      <th>User</th>
-      <th>Created by</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:body) %></th>
+      <th><%= model_class.human_attribute_name(:created_by) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @postcomments.each do |postcomment| %>
       <tr>
+        <td><%= postcomment.id %></td>
         <td><%= postcomment.title %></td>
         <td><%= postcomment.body %></td>
-        <td><%= postcomment.event %></td>
-        <td><%= postcomment.user %></td>
         <td><%= postcomment.created_by %></td>
-        <td><%= link_to 'Show', postcomment %></td>
-        <td><%= link_to 'Edit', edit_postcomment_path(postcomment) %></td>
-        <td><%= link_to 'Destroy', postcomment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l postcomment.created_at, format: :long %></td>
+        <td>
+          <%= link_to postcomment_path(postcomment), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to postcomment_path(postcomment), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Postcomment', new_postcomment_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_postcomment_path,
+            :class => 'btn btn-primary' %>
