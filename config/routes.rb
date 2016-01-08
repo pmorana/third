@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :chats
+
   resources :events
 
   devise_for :admin_users, ActiveAdmin::Devise.config
