@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :chats
   has_many :precomments
   has_many :postcomments
+  has_many :alerts
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
