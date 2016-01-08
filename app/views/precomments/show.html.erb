@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @precomment.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @precomment.body %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @precomment.event %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @precomment.user %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @precomment.created_by %>
+</p>
+
+<%= link_to 'Edit', edit_precomment_path(@precomment) %> |
+<%= link_to 'Back', precomments_path %>

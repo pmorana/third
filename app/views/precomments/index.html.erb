@@ -1,0 +1,33 @@
+<h1>Listing precomments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Event</th>
+      <th>User</th>
+      <th>Created by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @precomments.each do |precomment| %>
+      <tr>
+        <td><%= precomment.title %></td>
+        <td><%= precomment.body %></td>
+        <td><%= precomment.event %></td>
+        <td><%= precomment.user %></td>
+        <td><%= precomment.created_by %></td>
+        <td><%= link_to 'Show', precomment %></td>
+        <td><%= link_to 'Edit', edit_precomment_path(precomment) %></td>
+        <td><%= link_to 'Destroy', precomment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Precomment', new_precomment_path %>

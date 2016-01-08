@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :precomments
+
   resources :chats
 
   resources :events
